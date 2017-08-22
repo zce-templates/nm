@@ -1,0 +1,62 @@
+{
+  "name": "{{name}}",
+  "version": "{{version}}",
+  "description": "{{description}}",
+  "keywords": [
+    {{#cli}}
+    "cli",
+    {{/cli}}
+    "zce"
+  ],
+  "homepage": "https://github.com/{{repo}}#readme",
+  "bugs": {
+    "url": "https://github.com/{{repo}}/issues"
+  },
+  "license": "{{license}}",
+  "author": "{{author}}",
+  "files": [
+    {{#cli}}
+    "bin",
+    {{/cli}}
+    "lib"
+  ],
+  "main": "lib/index.js",
+  {{#cli}}
+  "bin": {
+    "{{name}}": "bin/{{name}}.js"
+  },
+  {{/cli}}
+  "directories": {
+    "doc": "doc",
+    "example": "example",
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/{{repo}}.git"
+  },
+  "scripts": {
+    "lint": "standard --fix",
+    "test": "npm run lint && nyc ava"
+  },
+  "dependencies": {
+    {{#cli}}
+    "commander": "^2.11.0"
+    {{/cli}}
+  },
+  "devDependencies": {
+    {{#test}}
+    "ava": "^0.22.0",
+    {{/test}}
+    {{#cov}}
+    "nyc": "^11.1.0",
+    {{/cov}}
+    "standard": "^10.0.3"
+  },
+  "engines": {
+    "node": ">=6"
+  }{{#cli}},
+  "preferGlobal": true
+  {{/cli}}
+}
