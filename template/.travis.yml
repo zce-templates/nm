@@ -18,11 +18,16 @@ notifications:
     on_success: never
     on_failure: change
 
+
+{{#coverage}}
 before_script:
   - yarn global add nyc codecov
+{{/coverage}}
 
 script:
   - yarn test
 
+{{#coverage}}
 after_script:
   - nyc report --reporter=text-lcov > coverage.lcov && codecov
+{{/coverage}}

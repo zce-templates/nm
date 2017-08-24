@@ -8,9 +8,9 @@
     {{/cli}}
     "zce"
   ],
-  "homepage": "https://github.com/{{repo}}#readme",
+  "homepage": "https://github.com/{{user}}/{{name}}#readme",
   "bugs": {
-    "url": "https://github.com/{{repo}}/issues"
+    "url": "https://github.com/{{user}}/{{name}}/issues"
   },
   "license": "{{license}}",
   "author": "{{author}}",
@@ -27,18 +27,22 @@
   },
   {{/cli}}
   "directories": {
+    {{#doc}}
     "doc": "doc",
+    {{/doc}}
+    {{#example}}
     "example": "example",
-    "lib": "lib",
-    "test": "test"
+    {{/example}}
+    "lib": "lib"{{#test}},
+    "test": "test"{{/test}}
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/{{repo}}.git"
+    "url": "git+https://github.com/{{user}}/{{name}}.git"
   },
   "scripts": {
-    "lint": "standard --fix",
-    "test": "npm run lint && nyc ava"
+    "lint": "standard --fix"{{#test}},
+    "test": "npm run lint &&{{#coverage}} nyc{{/coverage}} ava"{{/test}}
   },
   "dependencies": {
     {{#cli}}
@@ -49,14 +53,13 @@
     {{#test}}
     "ava": "^0.22.0",
     {{/test}}
-    {{#cov}}
+    {{#coverage}}
     "nyc": "^11.1.0",
-    {{/cov}}
+    {{/coverage}}
     "standard": "^10.0.3"
   },
   "engines": {
     "node": ">=6"
   }{{#cli}},
-  "preferGlobal": true
-  {{/cli}}
+  "preferGlobal": true{{/cli}}
 }

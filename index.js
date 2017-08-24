@@ -22,14 +22,15 @@ module.exports = {
       type: 'input',
       message: 'Project version'
     },
-    repo: {
-      type: 'input',
-      message: 'GitHub repository name'
-    },
     license: {
       type: 'list',
       message: 'Project license',
       choices: ['MIT', 'Apache', 'GPL']
+    },
+    user: {
+      type: 'input',
+      message: 'GitHub username',
+      default: 'zce'
     },
     cli: {
       type: 'confirm',
@@ -38,27 +39,23 @@ module.exports = {
     },
     doc: {
       type: 'confirm',
-      message: 'Need doc?',
+      message: 'Need additional doc?',
       default: false
     },
     example: {
       type: 'confirm',
-      message: 'Need example?',
+      message: 'Need some examples?',
       default: false
     },
     test: {
       type: 'confirm',
-      message: 'Need test?',
+      message: 'Need unit/e2e tests?',
       default: false
     },
-    ci: {
+    coverage: {
       type: 'confirm',
-      message: 'Need CI?',
-      default: false
-    },
-    cov: {
-      type: 'confirm',
-      message: 'Need coverage?',
+      message: 'Need code coverage?',
+      when: a => a.test,
       default: false
     }
   },
@@ -67,9 +64,14 @@ module.exports = {
     'doc/**': a => a.doc,
     'example/**': a => a.example,
     'test/**': a => a.test,
-    '.travis.yml': a => a.ci
+    '.travis.yml': a => a.test
   },
-  complete (context) {
-    console.log('  Good luck~ :-D')
+  complete: context => {
+    console.log('  To get started:')
+    console.log()
+    context.inPlace || console.log(`    $ cd ${require('path').relative(process.cwd(), context.dest)}`)
+    console.log('    $ yarn')
+    console.log()
+    console.log('  Good luck~')
   }
 }
