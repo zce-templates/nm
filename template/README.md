@@ -1,7 +1,11 @@
 # {{name}}
 
+{{#test}}
 [![Build Status][travis-image]][travis-url]
+{{#coverage}}
 [![Coverage Status][codecov-image]][codecov-url]
+{{/coverage}}
+{{/test}}
 [![NPM Downloads][downloads-image]][downloads-url]
 [![NPM Version][version-image]][version-url]
 [![License][license-image]][license-url]
@@ -63,10 +67,14 @@ console.log(result)
 
 
 
+{{#test}}
 [travis-image]: https://img.shields.io/travis/{{user}}/{{name}}.svg
 [travis-url]: https://travis-ci.org/{{user}}/{{name}}
+{{#coverage}}
 [codecov-image]: https://img.shields.io/codecov/c/github/{{user}}/{{name}}.svg
 [codecov-url]: https://codecov.io/gh/{{user}}/{{name}}
+{{/coverage}}
+{{/test}}
 [downloads-image]: https://img.shields.io/npm/dm/{{name}}.svg
 [downloads-url]: https://npmjs.org/package/{{name}}
 [version-image]: https://img.shields.io/npm/v/{{name}}.svg
