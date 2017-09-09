@@ -3,8 +3,8 @@ module.exports = {
   version: '0.1.0',
   metadata: {
     year: new Date().getYear() + 1900,
-    month: new Date().getMonth() + 1,
-    day: new Date().getDate()
+    month: ('0' + (new Date().getMonth() + 1)).substr(-2),
+    day: ('0' + new Date().getDate()).substr(-2)
   },
   prompts: {
     name: {
