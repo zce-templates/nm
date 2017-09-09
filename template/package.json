@@ -27,13 +27,9 @@
   },
   {{/cli}}
   "directories": {
-    {{#doc}}
-    "doc": "doc",
-    {{/doc}}
-    {{#example}}
-    "example": "example",
-    {{/example}}
-    "lib": "lib"{{#test}},
+    "lib": "lib"{{#doc}},
+    "doc": "doc"{{/doc}}{{#example}},
+    "example": "example"{{/example}}{{#test}},
     "test": "test"{{/test}}
   },
   "repository": {

@@ -30,7 +30,7 @@ $ npm install {{name}}
 const {{camel name}} = require('{{name}}')
 const result = {{camel name}}('zce')
 console.log(result)
-// => 'f1963aa09931b5dade50485239cc40bc'
+// => 'zce@zce.me'
 ```
 
 ## API

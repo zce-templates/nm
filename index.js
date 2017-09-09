@@ -2,7 +2,9 @@ module.exports = {
   name: 'nm',
   version: '0.1.0',
   metadata: {
-    year: new Date().getYear() + 1900
+    year: new Date().getYear() + 1900,
+    month: new Date().getMonth() + 1,
+    day: new Date().getDate()
   },
   prompts: {
     name: {

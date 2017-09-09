@@ -18,7 +18,6 @@ notifications:
     on_success: never
     on_failure: change
 
-
 {{#coverage}}
 before_script:
   - yarn global add nyc codecov
