@@ -50,6 +50,29 @@ console.log(result)
 - Details: host string
 - Default: `'zce.me'`
 
+{{#cli}}
+## CLI Usage
+
+```shell
+$ yarn global add {{name}}
+
+# or npm
+$ npm install {{name}} -g
+```
+
+```shell
+$ {{name}} --help
+
+  Usage: creative <input>
+
+  Options:
+
+    -V, --version  output the version number
+    -H, --host     Email host
+    -h, --help     output usage information
+```
+
+{{/cli}}
 ## Contributing
 
 1. **Fork** it on GitHub!

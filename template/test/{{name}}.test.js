@@ -1,7 +1,7 @@
 import test from 'ava'
 import {{camel name}} from '..'
 
-test('title', t => {
+test('<test-title>', t => {
   const err = t.throws(() => {{camel name}}(100), TypeError)
   t.is(err.message, 'Expected a string, got number')
 

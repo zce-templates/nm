@@ -47,10 +47,10 @@
   },
   "devDependencies": {
     {{#test}}
-    "ava": "^0.22.0",
+    "ava": "^0.23.0",
     {{/test}}
     {{#coverage}}
-    "nyc": "^11.1.0",
+    "nyc": "^11.3.0",
     {{/coverage}}
     "standard": "^10.0.3"
   },
