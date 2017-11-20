@@ -1,3 +1,5 @@
+const { relative } = require('path')
+
 module.exports = {
   name: 'nm',
   version: '0.1.0',
@@ -71,7 +73,7 @@ module.exports = {
   complete: context => {
     console.log('  To get started:')
     console.log()
-    context.inPlace || console.log(`    $ cd ${require('path').relative(process.cwd(), context.dest)}`)
+    context.inPlace || console.log(`    $ cd ${relative(process.cwd(), context.dest)}`)
     console.log('    $ yarn')
     console.log()
     console.log('  Good luck~')
