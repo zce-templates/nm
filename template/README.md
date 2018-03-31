@@ -17,7 +17,7 @@
 
 ## Installation
 
-```sh
+```shell
 $ yarn add {{name}}
 
 # or npm
@@ -26,7 +26,7 @@ $ npm install {{name}}
 
 ## Usage
 
-```js
+```javascript
 const {{camel name}} = require('{{name}}')
 const result = {{camel name}}('zce')
 console.log(result)
