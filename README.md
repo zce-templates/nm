@@ -7,9 +7,9 @@
 
 ## Usage
 
-```sh
+```shell
 # Install the zce-cli globally
-$ npm install -g zce-cli # or yarn global install zce-cli
+$ yarn global install zce-cli # or npm install -g zce-cli
 
 # Init a project through this template
 $ zce init nm my-project
