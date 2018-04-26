@@ -1,11 +1,7 @@
-# {{name}}
-
-{{#test}}
-[![Build Status][travis-image]][travis-url]
-{{#coverage}}
-[![Coverage Status][codecov-image]][codecov-url]
-{{/coverage}}
-{{/test}}
+# <%= name %>
+<% if (features.includes('test')) { %>
+[![Build Status][travis-image]][travis-url]<% if (features.includes('coverage')) { %>
+[![Coverage Status][codecov-image]][codecov-url]<% } %><% } %>
 [![NPM Downloads][downloads-image]][downloads-url]
 [![NPM Version][version-image]][version-url]
 [![License][license-image]][license-url]
@@ -13,29 +9,29 @@
 [![devDependency Status][devdependency-image]][devdependency-url]
 [![Code Style][style-image]][style-url]
 
-> {{description}}
+> <%= description %>
 
 ## Installation
 
 ```shell
-$ yarn add {{name}}
+$ yarn add <%= name %>
 
 # or npm
-$ npm install {{name}}
+$ npm install <%= name %>
 ```
 
 ## Usage
 
 ```javascript
-const {{camel name}} = require('{{name}}')
-const result = {{camel name}}('zce')
+const <%= _.camelCase(name) %> = require('<%= name %>')
+const result = <%= _.camelCase(name) %>('zce')
 console.log(result)
 // => 'zce@zce.me'
 ```
 
 ## API
 
-### {{camel name}}(name[, options])
+### <%= _.camelCase(name) %>(name[, options])
 
 #### name
 
@@ -48,31 +44,29 @@ console.log(result)
 
 - Type: `string`
 - Details: host string
-- Default: `'zce.me'`
+- Default: `'zce.me'`<% if (features.includes('cli')) { %>
 
-{{#cli}}
 ## CLI Usage
 
 ```shell
-$ yarn global add {{name}}
+$ yarn global add <%= name %>
 
 # or npm
-$ npm install {{name}} -g
+$ npm install <%= name %> -g
 ```
 
 ```shell
-$ {{name}} --help
+$ <%= name %> --help
 
-  Usage: creative <input>
+  Usage: <%= name %> <input>
 
   Options:
 
     -V, --version  output the version number
     -H, --host     Email host
     -h, --help     output usage information
-```
+```<% } %>
 
-{{/cli}}
 ## Contributing
 
 1. **Fork** it on GitHub!
@@ -86,27 +80,23 @@ $ {{name}} --help
 
 ## License
 
-[{{license}}](LICENSE) &copy; {{author}}
+[<%= license %>](LICENSE) &copy; <%= author %>
 
 
-
-{{#test}}
-[travis-image]: https://img.shields.io/travis/{{user}}/{{name}}.svg
-[travis-url]: https://travis-ci.org/{{user}}/{{name}}
-{{#coverage}}
-[codecov-image]: https://img.shields.io/codecov/c/github/{{user}}/{{name}}.svg
-[codecov-url]: https://codecov.io/gh/{{user}}/{{name}}
-{{/coverage}}
-{{/test}}
-[downloads-image]: https://img.shields.io/npm/dm/{{name}}.svg
-[downloads-url]: https://npmjs.org/package/{{name}}
-[version-image]: https://img.shields.io/npm/v/{{name}}.svg
-[version-url]: https://npmjs.org/package/{{name}}
-[license-image]: https://img.shields.io/npm/l/{{name}}.svg
-[license-url]: https://github.com/{{user}}/{{name}}/blob/master/LICENSE
-[dependency-image]: https://img.shields.io/david/{{user}}/{{name}}.svg
-[dependency-url]: https://david-dm.org/{{user}}/{{name}}
-[devdependency-image]: https://img.shields.io/david/dev/{{user}}/{{name}}.svg
-[devdependency-url]: https://david-dm.org/{{user}}/{{name}}?type=dev
+<% if (features.includes('test')) { %>
+[travis-image]: https://img.shields.io/travis/<%= github %>/<%= name %>.svg
+[travis-url]: https://travis-ci.org/<%= github %>/<%= name %><% if (features.includes('coverage')) { %>
+[codecov-image]: https://img.shields.io/codecov/c/github/<%= github %>/<%= name %>.svg
+[codecov-url]: https://codecov.io/gh/<%= github %>/<%= name %><% } %><% } %>
+[downloads-image]: https://img.shields.io/npm/dm/<%= name %>.svg
+[downloads-url]: https://npmjs.org/package/<%= name %>
+[version-image]: https://img.shields.io/npm/v/<%= name %>.svg
+[version-url]: https://npmjs.org/package/<%= name %>
+[license-image]: https://img.shields.io/npm/l/<%= name %>.svg
+[license-url]: https://github.com/<%= github %>/<%= name %>/blob/master/LICENSE
+[dependency-image]: https://img.shields.io/david/<%= github %>/<%= name %>.svg
+[dependency-url]: https://david-dm.org/<%= github %>/<%= name %>
+[devdependency-image]: https://img.shields.io/david/dev/<%= github %>/<%= name %>.svg
+[devdependency-url]: https://david-dm.org/<%= github %>/<%= name %>?type=dev
 [style-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
 [style-url]: http://standardjs.com

@@ -1,3 +1,3 @@
-const {{camel name}} = require('..')
+const <%= _.camelCase(name) %> = require('..')
 
-console.log({{camel name}}('foo'))
+console.log(<%= _.camelCase(name) %>('foo'))

@@ -2,7 +2,7 @@
 
 const program = require('commander')
 const pkg = require('../package')
-const {{camel name}} = require('..')
+const <%= _.camelCase(name) %> = require('..')
 
 program
   .version(pkg.version)
@@ -15,4 +15,4 @@ program
 const { args, host } = program
 const [ input ] = args
 
-console.log({{camel name}}(input, { host }))
+console.log(<%= _.camelCase(name) %>(input, { host }))

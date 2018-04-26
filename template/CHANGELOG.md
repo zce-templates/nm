@@ -1,6 +1,6 @@
 # Changelog
 
-## [{{version}}] - {{year}}-{{month}}-{{day}}
+## [<%= version %>] - <%= year %>-<%= month %>-<%= day %>
 
 - Initial release
 

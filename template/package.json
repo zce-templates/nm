@@ -1,61 +1,49 @@
 {
-  "name": "{{name}}",
-  "version": "{{version}}",
-  "description": "{{description}}",
-  "keywords": [
-    {{#cli}}
-    "cli",
-    {{/cli}}
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "description": "<%= description %>",
+  "keywords": [<% if (features.includes('cli')) { %>
+    "cli",<% } %>
     "zce"
   ],
-  "homepage": "https://github.com/{{user}}/{{name}}#readme",
+  "homepage": "https://github.com/<%= github %>/<%= name %>#readme",
   "bugs": {
-    "url": "https://github.com/{{user}}/{{name}}/issues"
+    "url": "https://github.com/<%= github %>/<%= name %>/issues"
   },
-  "license": "{{license}}",
-  "author": "{{author}}",
-  "files": [
-    {{#cli}}
-    "bin",
-    {{/cli}}
+  "license": "<%= license %>",
+  "author": "<%= author %>",
+  "files": [<% if (features.includes('cli')) { %>
+    "bin",<% } %>
     "lib"
   ],
-  "main": "lib/index.js",
-  {{#cli}}
+  "main": "lib/index.js"<% if (features.includes('cli')) { %>,
   "bin": {
-    "{{name}}": "bin/{{name}}.js"
-  },
-  {{/cli}}
+    "<%= name %>": "bin/<%= name %>.js"
+  }<% } %>,
   "directories": {
-    "lib": "lib"{{#doc}},
-    "doc": "doc"{{/doc}}{{#example}},
-    "example": "example"{{/example}}{{#test}},
-    "test": "test"{{/test}}
+    "lib": "lib"<% if (features.includes('doc')) { %>,
+    "doc": "doc"<% } %><% if (features.includes('example')) { %>,
+    "example": "example"<% } %><% if (features.includes('test')) { %>,
+    "test": "test"<% } %>
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/{{user}}/{{name}}.git"
+    "url": "git+https://github.com/<%= github %>/<%= name %>.git"
   },
   "scripts": {
-    "lint": "standard --fix"{{#test}},
-    "test": "npm run lint &&{{#coverage}} nyc{{/coverage}} ava"{{/test}}
+    "lint": "standard --fix"<% if (features.includes('test')) { %>,
+    "test": "<% if (features.includes('coverage')) { %>nyc <% } %>ava"<% } %>
   },
-  "dependencies": {
-    {{#cli}}
-    "commander": "^2.11.0"
-    {{/cli}}
-  },
-  "devDependencies": {
-    {{#test}}
-    "ava": "^0.23.0",
-    {{/test}}
-    {{#coverage}}
-    "nyc": "^11.3.0",
-    {{/coverage}}
-    "standard": "^10.0.3"
+  "dependencies": {<% if (features.includes('cli')) { %>
+    "commander": "^2.15.1"
+  <% } %>},
+  "devDependencies": {<% if (features.includes('test')) { %>
+    "ava": "^1.0.0-beta.4",<% } %><% if (features.includes('coverage')) { %>
+    "nyc": "^11.7.1",<% } %>
+    "standard": "^11.0.1"
   },
   "engines": {
     "node": ">=6"
-  }{{#cli}},
-  "preferGlobal": true{{/cli}}
+  }<% if (features.includes('cli')) { %>,
+  "preferGlobal": true<% } %>
 }

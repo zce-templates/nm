@@ -1,17 +1,41 @@
 {
   "name": "@zce-templates/nm",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A template for generating node modules by zce-cli",
-  "keywords": ["zce", "zce-templates", "nm"],
+  "keywords": [
+    "nm",
+    "zce-templates",
+    "zce-cli",
+    "zce"
+  ],
+  "homepage": "https://github.com/zce-templates/nm#readme",
+  "bugs": {
+    "url": "https://github.com/zce-templates/nm/issues"
+  },
   "license": "MIT",
-  "author": "zce <w@zce.me> (https://zce.me)",
-  "repository": "zce-templates/nm",
-  "dependencies": {
-    "commander": "^2.11.0"
+  "author": "zce <w@zce.me> (https://zce.me/)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zce-templates/nm.git"
+  },
+  "scripts": {
+    "test": "standard --fix && ava --verbose"
   },
   "devDependencies": {
-    "ava": "^0.23.0",
-    "nyc": "^11.3.0",
-    "standard": "^10.0.3"
+    "ava": "^1.0.0-beta.4",
+    "mock-prompt": "^0.1.2",
+    "standard": "^11.0.1",
+    "zce-cli": "^0.2.0-alpha.6"
+  },
+  "ava": {
+    "files": [
+      "test/*.test.js"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "template"
+    ]
   }
 }
