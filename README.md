@@ -19,7 +19,8 @@ $ zce init nm my-project
 
 ## TODOS
 
-- [ ] `template/package.json` dependencies stay up to date.
+- [x] `template/package.json` dependencies stay up to date.
+- [ ] More license choices support.
 
 ## Contributing
 
