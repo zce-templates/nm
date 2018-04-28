@@ -22,14 +22,17 @@ $ npm install <%= name %>
 
 ## Usage
 
+<!-- TODO: Introduction of API use -->
+
 ```javascript
 const <%= _.camelCase(name) %> = require('<%= name %>')
 const result = <%= _.camelCase(name) %>('zce')
-console.log(result)
-// => 'zce@zce.me'
+// result => 'zce@zce.me'
 ```
 
 ## API
+
+<!-- TODO: Introduction of API -->
 
 ### <%= _.camelCase(name) %>(name[, options])
 
@@ -47,6 +50,8 @@ console.log(result)
 - Default: `'zce.me'`<% if (features.includes('cli')) { %>
 
 ## CLI Usage
+
+<!-- TODO: Introduction of CLI -->
 
 ```shell
 $ yarn global add <%= name %>
