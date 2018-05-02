@@ -1,5 +1,11 @@
 const path = require('path')
 
+// Sharing the dependencies of zce-cli
+module.paths = require.main.paths
+
+const chalk = require('chalk')
+const { logger } = require(path.resolve(module.paths.shift(), '../../lib/common'))
+
 const date = new Date()
 
 module.exports = {
@@ -69,11 +75,11 @@ module.exports = {
     const { dest } = context
     const cwd = process.cwd()
 
-    console.log('  To get started:')
-    console.log()
-    dest === cwd || console.log(`    $ cd ${path.relative(cwd, dest)}`)
-    console.log('    $ yarn')
-    console.log()
-    console.log('  Good luck~')
+    logger.log('  To get started:')
+    logger.log()
+    dest === cwd || logger.log(`    $ cd ${path.relative(cwd, dest)}`)
+    logger.log('    $ yarn')
+    logger.log()
+    logger.log(chalk.green('  Good luck~'))
   }
 }
