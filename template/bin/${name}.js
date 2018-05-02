@@ -15,4 +15,5 @@ program
 const { args, host } = program
 const [ input ] = args
 
+// TODO: Implement module cli
 console.log(<%= _.camelCase(name) %>(input, { host }))
