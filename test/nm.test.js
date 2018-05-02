@@ -35,7 +35,6 @@ test.serial('minimal', async t => {
 })
 
 test.serial('maximal', async t => {
-  // TODO: mock prompt answers
   mockPrompt({
     name: 'maximal-template',
     version: '0.1.0',

@@ -1,10 +1,10 @@
 const path = require('path')
 
 // Sharing the dependencies of zce-cli
-module.paths = require.main.paths
+module.paths = module.parent.paths
 
 const chalk = require('chalk')
-const { logger } = require(path.resolve(module.paths.shift(), '../../lib/common'))
+const { logger } = require(path.resolve(module.paths[0], '../../common'))
 
 const date = new Date()
 
