@@ -75,11 +75,11 @@ module.exports = {
     const { dest } = context
     const cwd = process.cwd()
 
-    logger.log('  To get started:')
+    logger.log('✨  To get started:')
     logger.log()
-    dest === cwd || logger.log(`    $ cd ${path.relative(cwd, dest)}`)
-    logger.log('    $ yarn')
+    dest === cwd || logger.log(chalk.cyan(`   $ cd ${path.relative(cwd, dest)}`))
+    logger.log(chalk.cyan('   $ yarn'))
     logger.log()
-    logger.log(chalk.green('  Good luck~'))
+    logger.log('👻  Good luck :)')
   }
 }
