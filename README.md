@@ -13,8 +13,15 @@
 # Install the zce-cli globally
 $ yarn global install zce-cli # or npm install -g zce-cli
 
-# Init a project through this template
-$ zce init nm my-project
+# Init a module through this template
+$ zce init nm my-module
+$ cd my-module
+
+# Installing the dependencies
+$ yarn # or npm install
+
+# Running test if you choose test features
+$ yarn test # or npm run test
 ```
 
 ## TODOS
