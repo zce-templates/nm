@@ -29,6 +29,7 @@ $ yarn test # or npm run test
 - [x] `template/package.json` dependencies stay up to date.
 - [ ] More license choices support.
 - [ ] Optional package manager: yarn/npm.
+- [ ] ECMAScript Module support.
 
 ## Contributing
 
