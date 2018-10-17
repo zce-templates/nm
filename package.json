@@ -1,6 +1,6 @@
 {
   "name": "@zce-templates/nm",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A template for generating node modules by zce-cli",
   "keywords": [
     "nm",
