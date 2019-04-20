@@ -97,7 +97,7 @@ $ <%= name %> --help
 [downloads-url]: https://npmjs.org/package/<%= name %>
 [version-image]: https://img.shields.io/npm/v/<%= name %>.svg
 [version-url]: https://npmjs.org/package/<%= name %>
-[license-image]: https://img.shields.io/npm/l/<%= name %>.svg
+[license-image]: https://img.shields.io/github/license/<%= github %>/<%= name %>.svg
 [license-url]: https://github.com/<%= github %>/<%= name %>/blob/master/LICENSE
 [dependency-image]: https://img.shields.io/david/<%= github %>/<%= name %>.svg
 [dependency-url]: https://david-dm.org/<%= github %>/<%= name %>
