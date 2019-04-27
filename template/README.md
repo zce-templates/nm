@@ -89,7 +89,7 @@ $ <%= name %> --help
 
 
 <% if (features.includes('test')) { %>
-[travis-image]: https://img.shields.io/travis/<%= github %>/<%= name %>.svg
+[travis-image]: https://img.shields.io/travis/<%= github %>/<%= name %>/master.svg
 [travis-url]: https://travis-ci.org/<%= github %>/<%= name %><% if (features.includes('coverage')) { %>
 [codecov-image]: https://img.shields.io/codecov/c/github/<%= github %>/<%= name %>.svg
 [codecov-url]: https://codecov.io/gh/<%= github %>/<%= name %><% } %><% } %>
