@@ -104,4 +104,4 @@ $ <%= name %> --help
 [devdependency-image]: https://img.shields.io/david/dev/<%= github %>/<%= name %>.svg
 [devdependency-url]: https://david-dm.org/<%= github %>/<%= name %>?type=dev
 [style-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
-[style-url]: http://standardjs.com
+[style-url]: https://standardjs.com
