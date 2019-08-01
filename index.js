@@ -44,7 +44,7 @@ module.exports = {
       message: 'Project license',
       // TODO: more license choices~
       // http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html
-      choices: [ 'MIT', 'Apache' ]
+      choices: ['MIT', 'Apache']
     },
     features: {
       type: 'checkbox',

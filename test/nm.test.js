@@ -42,7 +42,7 @@ test.serial('maximal', async t => {
     author: 'zce <w@zce.me> (https://zce.me/)',
     github: 'zce',
     license: 'MIT',
-    features: [ 'cli', 'doc', 'example', 'test', 'coverage' ]
+    features: ['cli', 'doc', 'example', 'test', 'coverage']
   })
 
   await generator.init('../../', 'maximal-template', { force: true, save: false })
