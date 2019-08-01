@@ -27,7 +27,7 @@ $ yarn test # or npm run test
 ## TODOS
 
 - [x] `template/package.json` dependencies stay up to date.
-- [ ] More license choices support.
+- [x] More license choices support.
 - [ ] Optional package manager: yarn/npm.
 - [ ] ECMAScript Module support.
 
