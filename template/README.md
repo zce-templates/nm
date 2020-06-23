@@ -14,10 +14,10 @@
 ## Installation
 
 ```shell
-$ yarn add <%= name %>
-
-# or npm
 $ npm install <%= name %>
+
+# or yarn
+$ yarn add <%= name %>
 ```
 
 ## Usage

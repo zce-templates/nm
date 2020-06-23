@@ -1,6 +1,6 @@
 {
   "name": "@zce-templates/nm",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A template for generating node modules by zce-cli",
   "keywords": [
     "nm",
@@ -23,16 +23,16 @@
     "test": "standard --fix && ava --verbose"
   },
   "dependencies": {
-    "ava": "^2.2.0",
-    "commander": "^2.20.0",
-    "nyc": "^14.1.1",
-    "standard": "^13.1.0"
+    "ava": "^3.9.0",
+    "commander": "^5.1.0",
+    "nyc": "^15.1.0",
+    "standard": "^14.3.4"
   },
   "devDependencies": {
-    "ava": "^2.2.0",
-    "mock-prompt": "^0.1.4",
-    "standard": "^13.1.0",
-    "zce-cli": "^0.2.0"
+    "ava": "^3.9.0",
+    "mock-prompt": "^0.1.5",
+    "standard": "^14.3.4",
+    "zce-cli": "^0.2.2"
   },
   "ava": {
     "files": [

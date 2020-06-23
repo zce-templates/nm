@@ -1,11 +1,11 @@
-import test from 'ava'
+const test = require('ava')
 
-import fs from 'fs'
-import path from 'path'
-import { promisify } from 'util'
-import { generator } from 'zce-cli'
-import { util } from 'zce-cli/lib/common'
-import mockPrompt from 'mock-prompt'
+const fs = require('fs')
+const path = require('path')
+const { promisify } = require('util')
+const { generator } = require('zce-cli')
+const { util } = require('zce-cli/lib/common')
+const mockPrompt = require('mock-prompt')
 
 const readdir = promisify(fs.readdir)
 

@@ -11,11 +11,11 @@ notifications:
     on_failure: change<% if (features.includes('coverage')) { %>
 
 before_script:
-  - yarn global add nyc codecov<% } %>
+  - npm i nyc codecov -g<% } %>
 
 script:
-  - yarn lint
-  - yarn test<% if (features.includes('coverage')) { %>
+  - npm run lint
+  - npm run test<% if (features.includes('coverage')) { %>
 
 after_script:
   - nyc report --reporter=text-lcov > coverage.lcov && codecov<% } %>
