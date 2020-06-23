@@ -1,5 +1,5 @@
-import test from 'ava'
-import <%= _.camelCase(name) %> from '..'
+const test = require('ava')
+const <%= _.camelCase(name) %> = require('..')
 
 // TODO: Implement module test
 test('<test-title>', t => {
