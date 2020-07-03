@@ -66,7 +66,7 @@ module.exports = {
         { name: 'Test coverage', value: 'coverage' }
       ],
       result(names) {
-       return this.map(names);
+       return this.value(names);
       }
     }
   ],
