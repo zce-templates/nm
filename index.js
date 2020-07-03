@@ -59,11 +59,11 @@ module.exports = {
       message: 'Choose the features you need',
       initial: [3],
       choices: [
-        { message: 'CLI Program', name: 'cli' },
-        { message: 'Additional docs', name: 'doc' },
-        { message: 'Additional examples', name: 'example' },
-        { message: 'Automatic test', name: 'test' },
-        { message: 'Test coverage', name: 'coverage' }
+        { name: 'cli', message: 'CLI Program' },
+        { name: 'doc', message: 'Additional docs' },
+        { name: 'example', message: 'Additional examples' },
+        { name: 'test', message: 'Automatic test' },
+        { name: 'coverage', message: 'Test coverage' }
       ]
     }
   ],
@@ -77,7 +77,7 @@ module.exports = {
   plugin: async (context, next) => {
     // app.metadata() => answers
     // TODO: before filter
-    next()
+    await next()
     // TODO: after template render
   },
   complete: async (context) => {
