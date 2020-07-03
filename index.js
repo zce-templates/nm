@@ -2,8 +2,7 @@
 module.paths = module.parent.paths
 
 const path = require('path')
-const chalk = require('chalk')
-const { logger } = require(path.resolve(module.paths[0], '../../common'))
+// const { logger } = require(path.resolve(module.paths[0], '../../common'))
 
 const date = new Date()
 
@@ -88,11 +87,11 @@ module.exports = {
     const { dest } = context
     const cwd = process.cwd()
 
-    logger.log('✨  To get started:')
-    logger.log()
-    dest === cwd || logger.log(logger.color.cyan(`   $ cd ${path.relative(cwd, dest)}`))
-    logger.log(logger.color.cyan('   $ yarn'))
-    logger.log()
-    logger.log('👻  Good luck :)')
+    // logger.log('✨  To get started:')
+    // logger.log()
+    // dest === cwd || logger.log(logger.color.cyan(`   $ cd ${path.relative(cwd, dest)}`))
+    // logger.log(logger.color.cyan('   $ yarn'))
+    // logger.log()
+    // logger.log('👻  Good luck :)')
   }
 }
