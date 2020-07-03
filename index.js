@@ -1,13 +1,15 @@
-const path = require('path')
-
 // Sharing the dependencies of zce-cli
 module.paths = module.parent.paths
 
+const path = require('path')
 const chalk = require('chalk')
 const { logger } = require(path.resolve(module.paths[0], '../../common'))
 
 const date = new Date()
 
+/**
+ * @type {import('../../../src/commands/generator').TemplateOptions}
+ */
 module.exports = {
   name: 'nm',
   version: '0.2.0',
@@ -16,48 +18,59 @@ module.exports = {
     month: ('0' + (date.getMonth() + 1)).substr(-2),
     day: ('0' + date.getDate()).substr(-2)
   },
-  prompts: {
-    name: {
+  questions: [
+    {
+      name: 'name',
       type: 'input',
       message: 'Project name'
     },
-    version: {
+    {
+      name: 'version',
       type: 'input',
       message: 'Project version'
     },
-    description: {
+    {
+      name: 'description',
       type: 'input',
       message: 'Project description',
-      default: 'Awesome node module'
+      initial: 'Awesome node module'
     },
-    author: {
+    {
+      name: 'author',
       type: 'input',
       message: 'Project author'
     },
-    github: {
+    {
+      name: 'github',
       type: 'input',
       message: 'GitHub username',
-      default: 'zce'
+      initial: 'zce'
     },
-    license: {
-      type: 'list',
+    {
+      name: 'license',
+      type: 'select',
       message: 'Project license',
       // TODO: more license choices~
       // http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html
       choices: ['MIT', 'Apache']
     },
-    features: {
-      type: 'checkbox',
+    {
+      name: 'features',
+      type: 'multiselect',
       message: 'Choose the features you need',
+      initial: [3],
       choices: [
         { name: 'CLI Program', value: 'cli' },
         { name: 'Additional docs', value: 'doc' },
         { name: 'Additional examples', value: 'example' },
-        { name: 'Automatic test', value: 'test', checked: true },
+        { name: 'Automatic test', value: 'test' },
         { name: 'Test coverage', value: 'coverage' }
-      ]
+      ],
+      result(names) {
+       return this.map(names);
+      }
     }
-  },
+  ],
   filters: {
     'bin/**': answers => answers.features.includes('cli'),
     'doc/**': answers => answers.features.includes('doc'),
@@ -65,20 +78,20 @@ module.exports = {
     'test/**': answers => answers.features.includes('test'),
     '.travis.yml': answers => answers.features.includes('test')
   },
-  plugin: (files, app, next) => {
+  plugin: async (context, next) => {
     // app.metadata() => answers
     // TODO: before filter
     next()
     // TODO: after template render
   },
-  complete: context => {
+  complete: async (context) => {
     const { dest } = context
     const cwd = process.cwd()
 
     logger.log('✨  To get started:')
     logger.log()
-    dest === cwd || logger.log(chalk.cyan(`   $ cd ${path.relative(cwd, dest)}`))
-    logger.log(chalk.cyan('   $ yarn'))
+    dest === cwd || logger.log(logger.color.cyan(`   $ cd ${path.relative(cwd, dest)}`))
+    logger.log(logger.color.cyan('   $ yarn'))
     logger.log()
     logger.log('👻  Good luck :)')
   }
