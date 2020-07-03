@@ -59,15 +59,12 @@ module.exports = {
       message: 'Choose the features you need',
       initial: [3],
       choices: [
-        { name: 'CLI Program', value: 'cli' },
-        { name: 'Additional docs', value: 'doc' },
-        { name: 'Additional examples', value: 'example' },
-        { name: 'Automatic test', value: 'test' },
-        { name: 'Test coverage', value: 'coverage' }
-      ],
-      result(names) {
-       return this.value(names);
-      }
+        { message: 'CLI Program', name: 'cli' },
+        { message: 'Additional docs', name: 'doc' },
+        { message: 'Additional examples', name: 'example' },
+        { message: 'Automatic test', name: 'test' },
+        { message: 'Test coverage', name: 'coverage' }
+      ]
     }
   ],
   filters: {
