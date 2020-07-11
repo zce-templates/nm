@@ -8,14 +8,11 @@ node_js:
 notifications:
   email:
     on_success: never
-    on_failure: change<% if (features.includes('coverage')) { %>
-
-before_script:
-  - npm i nyc codecov -g<% } %>
+    on_failure: change
 
 script:
-  - npm run lint
+  - npm run lint<% if (features.includes('test')) { %>
   - npm run test<% if (features.includes('coverage')) { %>
 
 after_script:
-  - nyc report --reporter=text-lcov > coverage.lcov && codecov<% } %>
+  - npx codecov<% } %><% } %>

@@ -3,6 +3,8 @@
   "version": "0.3.0-alpha.6",
   "description": "A template for generating node modules by zce-cli",
   "keywords": [
+    "module",
+    "node",
     "nm",
     "zce-templates",
     "zce-cli",
@@ -12,15 +14,25 @@
   "bugs": {
     "url": "https://github.com/zce-templates/nm/issues"
   },
-  "license": "MIT",
-  "author": "zce <w@zce.me> (https://zce.me)",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zce-templates/nm.git"
   },
+  "license": "MIT",
+  "author": {
+    "name": "zce",
+    "email": "w@zce.me",
+    "url": "https://zce.me"
+  },
+  "main": "index.js",
   "scripts": {
-    "test": "standard --fix && ava --verbose"
+    "lint": "standard --fix",
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "template"
+    ]
   },
   "dependencies": {
     "jest": "^26.1.0",
@@ -28,9 +40,12 @@
     "standard": "^14.3.4"
   },
   "devDependencies": {
-    "jest": "26.1.0",
-    "standard": "14.3.4",
-    "zce-cli": "0.3.0-alpha.6"
+    "jest": "^26.1.0",
+    "standard": "^14.3.4",
+    "zce-cli": "^0.3.0-alpha.7"
+  },
+  "engines": {
+    "node": ">=12.10"
   },
   "standard": {
     "ignore": [

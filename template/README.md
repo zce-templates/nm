@@ -1,13 +1,14 @@
 # <%= name %>
 <% if (features.includes('test')) { %>
-[![Build Status][travis-image]][travis-url]<% if (features.includes('coverage')) { %>
-[![Coverage Status][codecov-image]][codecov-url]<% } %><% } %>
-[![NPM Downloads][downloads-image]][downloads-url]
-[![NPM Version][version-image]][version-url]
-[![License][license-image]][license-url]
-[![Dependency Status][dependency-image]][dependency-url]
-[![devDependency Status][devdependency-image]][devdependency-url]
-[![Code Style][style-image]][style-url]
+[![GitHub Actions Status][actions-img]][actions-url]
+[![Travis CI Status][travis-img]][travis-url]<% if (features.includes('coverage')) { %>
+[![Coverage Status][codecov-img]][codecov-url]<% } %><% } %>
+[![License][license-img]][license-url]
+[![NPM Downloads][downloads-img]][downloads-url]
+[![NPM Version][version-img]][version-url]
+[![Dependency Status][dependency-img]][dependency-url]
+[![devDependency Status][devdependency-img]][devdependency-url]
+[![Code Style][style-img]][style-url]
 
 > <%= description %>
 
@@ -53,23 +54,29 @@ const result = <%= _.camelCase(name) %>('zce')
 
 <!-- TODO: Introduction of CLI -->
 
-```shell
-$ yarn global add <%= name %>
+Use npx:
 
-# or npm
+```shell
+$ npx <%= name %> <input> [options]
+```
+
+Globally install:
+
+```shell
 $ npm install <%= name %> -g
+
+# or yarn
+$ yarn global add <%= name %>
 ```
 
 ```shell
 $ <%= name %> --help
+Usage: <%= name %> <input> [options]
 
-  Usage: <%= name %> <input>
-
-  Options:
-
-    -V, --version  output the version number
-    -H, --host     Email host
-    -h, --help     output usage information
+Options:
+  --host         Email host
+  -V, --version  show version
+  -h, --help     show help info
 ```<% } %>
 
 ## Contributing
@@ -85,23 +92,25 @@ $ <%= name %> --help
 
 ## License
 
-[<%= license %>](LICENSE) &copy; <%= author %>
+[<%= license %>](LICENSE) &copy; [<%= author %>](<%= url %>)
 
 
 <% if (features.includes('test')) { %>
-[travis-image]: https://img.shields.io/travis/<%= github %>/<%= name %>/master.svg
+[actions-img]: https://img.shields.io/github/workflow/status/<%= github %>/<%= name %>/CI?label=actions
+[actions-url]: https://github.com/<%= github %>/<%= name %>/actions
+[travis-img]: https://img.shields.io/travis/<%= github %>/<%= name %>?label=travis
 [travis-url]: https://travis-ci.org/<%= github %>/<%= name %><% if (features.includes('coverage')) { %>
-[codecov-image]: https://img.shields.io/codecov/c/github/<%= github %>/<%= name %>/master.svg
+[codecov-img]: https://img.shields.io/codecov/c/github/<%= github %>/<%= name %>
 [codecov-url]: https://codecov.io/gh/<%= github %>/<%= name %><% } %><% } %>
-[downloads-image]: https://img.shields.io/npm/dm/<%= name %>.svg
-[downloads-url]: https://npmjs.org/package/<%= name %>
-[version-image]: https://img.shields.io/npm/v/<%= name %>.svg
-[version-url]: https://npmjs.org/package/<%= name %>
-[license-image]: https://img.shields.io/github/license/<%= github %>/<%= name %>.svg
+[license-img]: https://img.shields.io/github/license/<%= github %>/<%= name %>
 [license-url]: https://github.com/<%= github %>/<%= name %>/blob/master/LICENSE
-[dependency-image]: https://img.shields.io/david/<%= github %>/<%= name %>.svg
+[downloads-img]: https://img.shields.io/npm/dm/<%= name %>
+[downloads-url]: https://npmjs.org/package/<%= name %>
+[version-img]: https://img.shields.io/npm/v/<%= name %>
+[version-url]: https://npmjs.org/package/<%= name %>
+[dependency-img]: https://img.shields.io/david/<%= github %>/<%= name %>
 [dependency-url]: https://david-dm.org/<%= github %>/<%= name %>
-[devdependency-image]: https://img.shields.io/david/dev/<%= github %>/<%= name %>.svg
+[devdependency-img]: https://img.shields.io/david/dev/<%= github %>/<%= name %>
 [devdependency-url]: https://david-dm.org/<%= github %>/<%= name %>?type=dev
-[style-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[style-img]: https://img.shields.io/badge/code_style-standard-brightgreen
 [style-url]: https://standardjs.com

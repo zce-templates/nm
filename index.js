@@ -36,12 +36,22 @@ module.exports = {
     {
       name: 'author',
       type: 'input',
-      message: 'Project author'
+      message: 'Project author name'
+    },
+    {
+      name: 'email',
+      type: 'input',
+      message: 'Project author email'
+    },
+    {
+      name: 'url',
+      type: 'input',
+      message: 'Project author url'
     },
     {
       name: 'github',
       type: 'input',
-      message: 'GitHub username',
+      message: 'Github username',
       initial: 'zce'
     },
     {
@@ -61,21 +71,26 @@ module.exports = {
         { name: 'doc', message: 'Additional docs' },
         { name: 'example', message: 'Additional examples' },
         { name: 'test', message: 'Automatic test' },
-        { name: 'coverage', message: 'Test coverage' }
+        { name: 'coverage', message: 'Test coverage' },
+        { name: 'maintain', message: 'Maintain dependencies' },
       ]
     }
   ],
   filters: {
-    // @ts-ignore
+    /** @param {{ features: string[] }} answers */
+    '.github/workflows/**': answers => answers.features.includes('test'),
+    /** @param {{ features: string[] }} answers */
+    '.github/dependabot.yml': answers => answers.features.includes('maintain'),
+    /** @param {{ features: string[] }} answers */
     'bin/**': answers => answers.features.includes('cli'),
-    // @ts-ignore
+    /** @param {{ features: string[] }} answers */
     'doc/**': answers => answers.features.includes('doc'),
-    // @ts-ignore
+    /** @param {{ features: string[] }} answers */
     'example/**': answers => answers.features.includes('example'),
-    // @ts-ignore
+    /** @param {{ features: string[] }} answers */
     'test/**': answers => answers.features.includes('test'),
-    // @ts-ignore
-    '.travis.yml': answers => answers.features.includes('test')
+    /** @param {{ features: string[] }} answers */
+    '.travis.yml': answers => answers.features.includes('test'),
   },
   plugin: async (context, next) => {
     // TODO: before inquire
@@ -86,14 +101,11 @@ module.exports = {
     const { dest } = context
     const { info, color } = logger
     const cwd = process.cwd()
-    info('✨ Getting Started:')
-    info()
+    info('✨ Getting Started:\n')
     if (dest !== cwd) {
       info(color.cyan(`  $ cd ${path.relative(cwd, dest)}`))
     }
     info(color.cyan('  $ npm install') + color.gray(' # or yarn'))
-    info()
-    info('👻 Good luck :)')
-    info()
+    info('\n👻 Good luck :)\n')
   }
 }

@@ -1,19 +1,35 @@
 #!/usr/bin/env node
 
-const program = require('commander')
-const pkg = require('../package')
+const minimist = require('minimist')
 const <%= _.camelCase(name) %> = require('..')
+const { name, version } = require('../package')
 
-program
-  .version(pkg.version)
-  .usage('<input>')
-  .option('-H, --host', 'Email host')
-  .on('--help', console.log)
-  .parse(process.argv)
-  .args.length || program.help()
+const argv = minimist(process.argv.slice(2))
 
-const { args, host } = program
-const [ input ] = args
+if (argv.help || argv.h) {
+  console.log(`
+Usage: <%= "${name}" %> <input> [options]
+
+Options:
+  --host         Email host
+  -V, --version  show version
+  -h, --help     show help info
+`.trim())
+  process.exit()
+}
+
+if (argv.version || argv.V) {
+  console.log(version)
+  process.exit()
+}
 
 // TODO: Implement module cli
+
+const { host, _: [ input ] } = argv
+
+if (typeof input === 'undefined') {
+  console.error('Missing required argument: <input>')
+  process.exit(1)
+}
+
 console.log(<%= _.camelCase(name) %>(input, { host }))

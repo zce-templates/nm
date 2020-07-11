@@ -11,12 +11,16 @@
   "bugs": {
     "url": "https://github.com/<%= github %>/<%= name %>/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<%= github %>/<%= name %>.git"
+  },
   "license": "<%= license %>",
-  "author": "<%= author %>",
-  "files": [<% if (features.includes('cli')) { %>
-    "bin",<% } %>
-    "lib"
-  ],
+  "author": {
+    "name": "<%= author %>",
+    "email": "<%= email %>",
+    "url": "<%= url %>"
+  },
   "main": "lib/index.js"<% if (features.includes('cli')) { %>,
   "bin": "bin/<%= name %>.js"<% } %>,
   "directories": {
@@ -25,24 +29,27 @@
     "example": "example"<% } %><% if (features.includes('test')) { %>,
     "test": "test"<% } %>
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/<%= github %>/<%= name %>.git"
-  },
+  "files": [<% if (features.includes('cli')) { %>
+    "bin",<% } %>
+    "lib"
+  ],
   "scripts": {
     "lint": "standard --fix"<% if (features.includes('test')) { %>,
-    "test": "<%= features.includes('coverage') ? 'nyc ' : '' %>ava"<% } %>
+    "test": "jest<%= features.includes('coverage') ? ' --coverage' : '' %>"<% } %>
   },
   "dependencies": {<% if (features.includes('cli')) { %>
-    "commander": "^5.1.0"
+    "minimist": "^1.2.5"
   <% } %>},
   "devDependencies": {<% if (features.includes('test')) { %>
-    "ava": "^3.9.0",<% } %><% if (features.includes('coverage')) { %>
-    "nyc": "^15.1.0",<% } %>
+    "jest": "^26.1.0",<% } %>
     "standard": "^14.3.4"
   },
   "engines": {
-    "node": ">=8"
-  }<% if (features.includes('cli')) { %>,
-  "preferGlobal": true<% } %>
+    "node": ">=8.6"
+  }<% if (features.includes('test')) { %>,
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  }<% } %>
 }
