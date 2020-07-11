@@ -1,12 +1,8 @@
 // @ts-check
-// Sharing the dependencies of zce-cli
-console.log(module.paths)
-console.log('---------------------------------')
+// !!! Sharing the dependencies of zce-cli
 module.paths = module.parent.paths
-console.log(module.paths)
 
 const path = require('path')
-// const { logger } = require(path.resolve(module.paths[0], '../../core'))
 const { logger } = require('zce-cli/lib/core')
 
 const date = new Date()
@@ -88,12 +84,16 @@ module.exports = {
   },
   complete: async context => {
     const { dest } = context
+    const { info, color } = logger
     const cwd = process.cwd()
-    logger.log('✨  To getting started:')
-    logger.log()
-    dest === cwd || logger.log(logger.color.cyan(`   $ cd ${path.relative(cwd, dest)}`))
-    logger.log(logger.color.cyan('   $ yarn'))
-    logger.log()
-    logger.log('👻  Good luck :)')
+    info('✨ Getting Started:')
+    info()
+    if (dest !== cwd) {
+      info(color.cyan(`  $ cd ${path.relative(cwd, dest)}`))
+    }
+    info(color.cyan('  $ npm install') + color.gray(' # or yarn'))
+    info()
+    info('👻 Good luck :)')
+    info()
   }
 }
