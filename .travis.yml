@@ -4,10 +4,6 @@ language: node_js
 
 node_js:
   - lts/*
-  - node
-
-cache:
-  yarn: true
 
 notifications:
   email:
@@ -15,4 +11,4 @@ notifications:
     on_failure: change
 
 script:
-  - yarn test
+  - npm run test

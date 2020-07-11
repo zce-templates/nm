@@ -1,17 +1,17 @@
+// @ts-check
 // Sharing the dependencies of zce-cli
 module.paths = module.parent.paths
 
 const path = require('path')
-const { logger } = require(path.resolve(module.paths[0], '../../core'))
+// const { logger } = require(path.resolve(module.paths[0], '../../core'))
+const { logger } = require('zce-cli/lib/core')
 
 const date = new Date()
 
-/**
- * @type {import('../../../src/commands/generator').TemplateOptions}
- */
+/** @type {import('zce-cli/lib/commands/init').TemplateOptions} */
 module.exports = {
   name: 'nm',
-  version: '0.2.0',
+  version: '0.3.0',
   metadata: {
     year: date.getFullYear(),
     month: ('0' + (date.getMonth() + 1)).substr(-2),
@@ -49,8 +49,7 @@ module.exports = {
       name: 'license',
       type: 'select',
       message: 'Project license',
-      // TODO: more license choices~
-      // http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html
+      // TODO: more license choices
       choices: ['MIT', 'Apache']
     },
     {
@@ -68,23 +67,26 @@ module.exports = {
     }
   ],
   filters: {
+    // @ts-ignore
     'bin/**': answers => answers.features.includes('cli'),
+    // @ts-ignore
     'doc/**': answers => answers.features.includes('doc'),
+    // @ts-ignore
     'example/**': answers => answers.features.includes('example'),
+    // @ts-ignore
     'test/**': answers => answers.features.includes('test'),
+    // @ts-ignore
     '.travis.yml': answers => answers.features.includes('test')
   },
   plugin: async (context, next) => {
-    // app.metadata() => answers
-    // TODO: before filter
+    // TODO: before inquire
     await next()
-    // TODO: after template render
+    // TODO: after completed
   },
-  complete: async (context) => {
+  complete: async context => {
     const { dest } = context
     const cwd = process.cwd()
-
-    logger.log('✨  To get started:')
+    logger.log('✨  To getting started:')
     logger.log()
     dest === cwd || logger.log(logger.color.cyan(`   $ cd ${path.relative(cwd, dest)}`))
     logger.log(logger.color.cyan('   $ yarn'))
