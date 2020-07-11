@@ -1,6 +1,9 @@
 // @ts-check
 // Sharing the dependencies of zce-cli
+console.log(module.paths)
+console.log('---------------------------------')
 module.paths = module.parent.paths
+console.log(module.paths)
 
 const path = require('path')
 // const { logger } = require(path.resolve(module.paths[0], '../../core'))
