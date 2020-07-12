@@ -2,7 +2,7 @@
 // !!! Sharing the dependencies of zce-cli
 module.paths = module.parent.paths
 
-const path = require('path')
+const { relative } = require('path')
 const { logger } = require('zce-cli/lib/core')
 
 const date = new Date()
@@ -65,7 +65,7 @@ module.exports = {
       name: 'features',
       type: 'multiselect',
       message: 'Choose the features you need',
-      initial: [3],
+      initial: [3, 5],
       choices: [
         { name: 'cli', message: 'CLI Program' },
         { name: 'doc', message: 'Additional docs' },
@@ -103,9 +103,9 @@ module.exports = {
     const cwd = process.cwd()
     info('✨ Getting Started:\n')
     if (dest !== cwd) {
-      info(color.cyan(`  $ cd ${path.relative(cwd, dest)}`))
+      info(color.cyan(`  $ cd ${relative(cwd, dest)}`))
     }
     info(color.cyan('  $ npm install') + color.gray(' # or yarn'))
-    info('\n👻 Good luck :)\n')
+    info('\ni🐱‍🏍 Good luck :)')
   }
 }
