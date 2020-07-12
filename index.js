@@ -101,11 +101,11 @@ module.exports = {
     const { dest } = context
     const { info, color } = logger
     const cwd = process.cwd()
-    info('✨ Getting Started:\n')
+    info('Getting Started:')
     if (dest !== cwd) {
       info(color.cyan(`  $ cd ${relative(cwd, dest)}`))
     }
     info(color.cyan('  $ npm install') + color.gray(' # or yarn'))
-    info('\ni🐱‍🏍 Good luck :)')
+    info('Good luck :)')
   }
 }
