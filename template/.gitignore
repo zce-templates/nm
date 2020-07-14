@@ -1,4 +1,4 @@
-.DS_Store<% if (features.includes('coverage')) { %>,
+.DS_Store<% if (features.includes('coverage')) { %>
 coverage<% } %>
 node_modules
 yarn.lock
