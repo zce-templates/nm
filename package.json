@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "ava": "^3.9.0",
-    "commander": "^5.1.0",
+    "commander": "^6.0.0",
     "nyc": "^15.1.0",
     "standard": "^14.3.4"
   },
